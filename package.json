@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-express-second-porject-guideapp",
+  "name": "nodejs-express-second-project-guideapp",
   "version": "1.0.0",
   "description": "Training expressjs and typescript",
   "main": "dist/app.js",
