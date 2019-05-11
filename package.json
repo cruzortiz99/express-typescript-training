@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-express-typescript-project-guideapp",
+  "name": "nodejs-express-typescript-project-guide-app",
   "version": "1.0.0",
-  "description": "Training expressjs and typescript",
+  "description": "Training express and typescript",
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
