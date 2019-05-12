@@ -12,7 +12,7 @@ Node full guide express &amp; typescript training
 
 2. Express
 
-   2.1. Iniciando una Aplicación express
+   2.1. [Iniciando una Aplicación express](src/02-express-basics/01-starting-express-app.ts)
 
    2.2. Middleware
 
