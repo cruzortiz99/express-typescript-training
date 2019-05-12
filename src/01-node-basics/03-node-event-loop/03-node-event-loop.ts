@@ -9,7 +9,15 @@ const server = http.createServer((request, response) => {
   // Log
   console.log(method, url)
   if (url === '/' && method === 'GET') {
-    let filePath = path.join(__dirname, 'index.html')
+    let filePath = path.join(
+      __dirname,
+      '..',
+      '..',
+      '..',
+      'static',
+      '03-node-event-loop',
+      'index.html'
+    )
     // Iniciando un stream
     let file = fs.createReadStream(filePath, {
       encoding: 'utf8',
@@ -19,6 +27,7 @@ const server = http.createServer((request, response) => {
     file.on('data', (chunk) => {
       response.write(chunk)
     })
+    // Escuchando el evento close para cerrar la respuesta
     file.on('close', () => {
       response.end()
     })
