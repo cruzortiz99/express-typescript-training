@@ -9,6 +9,7 @@ const server = http.createServer((request, response) => {
   // Log
   console.log(method, url)
   if (url === '/' && method === 'GET') {
+    // Construyendo la ruta al archivo
     let filePath = path.join(
       __dirname,
       '..',
