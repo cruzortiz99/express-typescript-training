@@ -1,18 +1,27 @@
 import http from 'http'
-// Constantes para la creación del servidor
+import fs from 'fs'
+import path from 'path'
 const port = 3000
 const host = 'localhost'
-// Iniciando el servidor
 const server = http.createServer((request, response) => {
   const url = request.url
   const method = request.method
   // Log
   console.log(method, url)
   if (url === '/' && method === 'GET') {
-    response.write(`
-      <h1>Hola Mundo</h1>
-    `)
-    response.end()
+    let filePath = path.join(__dirname, 'index.html')
+    // Iniciando un stream
+    let file = fs.createReadStream(filePath, {
+      encoding: 'utf8',
+      highWaterMark: 64 * 1024
+    })
+    // Trabajando con los eventos del stream, esto permite realizar bloques de proceso sin bloqueo
+    file.on('data', (chunk) => {
+      response.write(chunk)
+    })
+    file.on('close', () => {
+      response.end()
+    })
   }
 })
 // Escuchando por el host y el puerto definidos
