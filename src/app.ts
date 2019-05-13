@@ -12,6 +12,7 @@ app.use((request, response, next) => {
 })
 
 app.use('/stylesheet.css', (request, response, next) => {
+  response.setHeader('ContentType', 'text/css')
   let css = fs
     .createReadStream(
       path.join(__dirname, '..', 'node_modules', 'bulma', 'css', 'bulma.css'),
