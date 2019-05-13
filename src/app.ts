@@ -6,6 +6,20 @@ const port = parseInt(`${process.env.PORT || 3000}`)
 const host = 'localhost'
 const app = express()
 
+app.use((request, response, next) => {
+  console.log(request.method, request.url)
+  next()
+})
+
+app.use('/stylesheet.css', (request, response, next) => {
+  let css = fs
+    .createReadStream(
+      path.join(__dirname, '..', 'node_modules', 'bulma', 'css', 'bulma.css'),
+      { encoding: 'utf8' }
+    )
+    .pipe(response)
+})
+
 app.get('/', (request, response) => {
   let file = fs.createReadStream(
     path.join(__dirname, '..', 'static', 'index.html'),
