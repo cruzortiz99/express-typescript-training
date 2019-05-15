@@ -16,6 +16,7 @@ const server = http.createServer((request, response) => {
       '..',
       '..',
       'static',
+      '01-node-basics',
       '03-node-event-loop',
       'index.html'
     )
