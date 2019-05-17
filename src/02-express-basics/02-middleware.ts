@@ -9,7 +9,7 @@ const app = express()
 // Middleware para los archivos estáticos
 app.use('/assets', (request, response) => {
   let fileName = path.basename(request.url)
-  let file = fs.readFile(
+  fs.readFile(
     path.join(
       __dirname,
       '..',
@@ -29,6 +29,23 @@ app.use('/assets', (request, response) => {
   )
 })
 // Middleware raíz
+app.use('/', (request, response) => {
+  fs.readFile(
+    path.join(
+      __dirname,
+      '..',
+      '..',
+      'static',
+      '02-express-basics',
+      '02-middleware',
+      'index.html'
+    ),
+    (err, data) => {
+      if (err) {
+      }
+    }
+  )
+})
 // Middleware get para la segunda pagina
 // Middleware post para redirections
 
