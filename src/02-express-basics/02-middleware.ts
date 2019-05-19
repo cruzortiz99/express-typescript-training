@@ -3,6 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import bodyParser from 'body-parser'
 
+// Constantes de la app
 const port = 3000
 const host = 'localhost'
 const app = express()
@@ -34,6 +35,41 @@ app.use('/assets', (request, response) => {
     }
   )
 })
+
+// Middleware get para la segunda pagina con formulario
+app.get('/form', (request, response) => {
+  fs.readFile(
+    path.join(
+      __dirname,
+      '..',
+      '..',
+      'static',
+      '02-express-basics',
+      '02-middleware',
+      'assets',
+      'form.html'
+    ),
+    (err, data) => {
+      if (err) {
+        response.redirect('/assets/404.html')
+        response.end()
+      } else {
+        response.end(data)
+      }
+    }
+  )
+})
+
+// Middleware para post
+app.post('/form', (request, response) => {
+  let html = `
+  <body>
+    <h1> Hola, ${request.body.user}</h1>
+  </body>
+  `
+  response.end(html)
+})
+
 // Middleware raíz
 app.use('/', (request, response) => {
   fs.readFile(
@@ -56,38 +92,6 @@ app.use('/', (request, response) => {
     }
   )
 })
-// Middleware get para la segunda pagina
-app.use('/form', (request, response) => {
-  fs.readFile(
-    path.join(
-      __dirname,
-      '..',
-      '..',
-      'static',
-      '02-express-basics',
-      '02-middleware',
-      'form.html'
-    ),
-    (err, data) => {
-      if (err) {
-        response.redirect('/assets/404.html')
-        response.end()
-      } else {
-        response.end(data)
-      }
-    }
-  )
-})
-// Middleware post para redirections
-app.post('/form', (request, response) => {
-  let html = `
-  <body>
-    <h1> Hola, ${request.body}</h1>
-  </body>
-  `
-  response.end(html)
-})
-
 app.listen(port, host, () => {
   console.log(`Running on ${host}:${port}`)
 })
