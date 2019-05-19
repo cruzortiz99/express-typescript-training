@@ -22,9 +22,11 @@ app.use('/assets', (request, response) => {
     ),
     (err, data) => {
       if (err) {
-        response.redirect('/assets/404.html')
+        response.writeHead(404)
+        response.end()
+      } else {
+        response.end(data)
       }
-      response.end(data)
     }
   )
 })
@@ -42,11 +44,15 @@ app.use('/', (request, response) => {
     ),
     (err, data) => {
       if (err) {
+        response.redirect('/assets/404.html')
+      } else {
+        response.end(data)
       }
     }
   )
 })
 // Middleware get para la segunda pagina
+app.use('/form', (request, response) => {})
 // Middleware post para redirections
 
 app.listen(port, host, () => {
