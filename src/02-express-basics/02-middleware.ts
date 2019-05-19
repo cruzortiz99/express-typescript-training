@@ -1,10 +1,14 @@
 import express from 'express'
 import path from 'path'
 import fs from 'fs'
+import bodyParser from 'body-parser'
 
 const port = 3000
 const host = 'localhost'
 const app = express()
+
+// Body Parser para todas las peticiones
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // Middleware para los archivos estáticos
 app.use('/assets', (request, response) => {
@@ -75,7 +79,14 @@ app.use('/form', (request, response) => {
   )
 })
 // Middleware post para redirections
-app.post('/form', (request, response) => {})
+app.post('/form', (request, response) => {
+  let html = `
+  <body>
+    <h1> Hola, ${request.body}</h1>
+  </body>
+  `
+  response.end(html)
+})
 
 app.listen(port, host, () => {
   console.log(`Running on ${host}:${port}`)
