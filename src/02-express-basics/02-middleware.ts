@@ -75,6 +75,7 @@ app.use('/form', (request, response) => {
   )
 })
 // Middleware post para redirections
+app.post('/form', (request, response) => {})
 
 app.listen(port, host, () => {
   console.log(`Running on ${host}:${port}`)
