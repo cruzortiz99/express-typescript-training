@@ -45,6 +45,7 @@ app.use('/', (request, response) => {
     (err, data) => {
       if (err) {
         response.redirect('/assets/404.html')
+        response.end()
       } else {
         response.end(data)
       }
@@ -52,7 +53,27 @@ app.use('/', (request, response) => {
   )
 })
 // Middleware get para la segunda pagina
-app.use('/form', (request, response) => {})
+app.use('/form', (request, response) => {
+  fs.readFile(
+    path.join(
+      __dirname,
+      '..',
+      '..',
+      'static',
+      '02-express-basics',
+      '02-middleware',
+      'form.html'
+    ),
+    (err, data) => {
+      if (err) {
+        response.redirect('/assets/404.html')
+        response.end()
+      } else {
+        response.end(data)
+      }
+    }
+  )
+})
 // Middleware post para redirections
 
 app.listen(port, host, () => {
