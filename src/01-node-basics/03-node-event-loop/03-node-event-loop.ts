@@ -1,3 +1,10 @@
+/**
+ * Se utilizarán los procesos asíncronos de node
+ * para entender mejor la base fundamental del procesamiento
+ * o ejecución de procesos que no se bloquean, es decir
+ * la arquitectura base de node
+ */
+
 import http from 'http'
 import fs from 'fs'
 import path from 'path'

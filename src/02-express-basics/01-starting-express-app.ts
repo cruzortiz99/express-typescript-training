@@ -1,3 +1,7 @@
+/**
+ * Se iniciará una aplicación express simple
+ * que retorne un Hola Mundo en html
+ */
 import express from 'express'
 // Constantes para la aplicación
 const port = 3000

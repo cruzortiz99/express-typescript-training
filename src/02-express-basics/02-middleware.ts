@@ -1,3 +1,7 @@
+/**
+ * Se trabajaren con los Middleware y su diferentes formas
+ * y la manera de emplearlos para desarrollar aplicaciones
+ */
 import express, { response } from 'express'
 import path from 'path'
 import fs from 'fs'

@@ -1,3 +1,8 @@
+/**
+ * Se crearán rutas de direccionamiento de
+ * una aplicación node, para las diferentes
+ * peticiones que se le pueden hacer a la aplicación
+ */
 import http from 'http'
 // Importando router
 import routing from './routes/routing'

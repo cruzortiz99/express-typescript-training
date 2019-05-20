@@ -1,3 +1,8 @@
+/**
+ * Se iniciará un servidor básico con node
+ * que retorne en la raíz de la dirección
+ * un Hola mundo en html
+ */
 import http from 'http'
 // Constantes para la creación del servidor
 const port = 3000
