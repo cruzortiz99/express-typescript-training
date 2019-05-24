@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse } from 'http'
+import { ServerResponse, IncomingMessage } from 'http'
 // Construyendo la respuesta de la ruta base
 const getRoot = (response: ServerResponse) => {
   response.write(`
@@ -9,9 +9,9 @@ const getRoot = (response: ServerResponse) => {
 // Encargado de las peticiones GET
 const getByUrl = (request: IncomingMessage, response: ServerResponse) => {
   switch (request.url) {
-    case '/':
-      getRoot(response)
-      break
+  case '/':
+    getRoot(response)
+    break
   }
 }
 // Direccionamiento por el método
@@ -20,8 +20,9 @@ const responseByMethod = (
   response: ServerResponse
 ) => {
   switch (request.method) {
-    case 'GET':
-      break
+  case 'GET':
+    getByUrl(request, response)
+    break
   }
 }
 

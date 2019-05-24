@@ -9,7 +9,7 @@ const host = 'localhost'
 // Construye una aplicación express
 const app = express()
 // Construye un Middleware para la raíz
-app.use('/', (request, response, next) => {
+app.use('/', (request, response) => {
   console.log(request.method, request.url)
   if (request.method === 'GET') {
     // Usar send para escribir la respuesta y cerrar el Middleware

@@ -11,14 +11,12 @@ app.use((request, response, next) => {
   next()
 })
 
-app.use('/stylesheet.css', (request, response, next) => {
+app.use('/stylesheet.css', (request, response) => {
   response.setHeader('ContentType', 'text/css')
-  let css = fs
-    .createReadStream(
-      path.join(__dirname, '..', 'node_modules', 'bulma', 'css', 'bulma.css'),
-      { encoding: 'utf8' }
-    )
-    .pipe(response)
+  fs.createReadStream(
+    path.join(__dirname, '..', 'node_modules', 'bulma', 'css', 'bulma.css'),
+    { encoding: 'utf8' }
+  ).pipe(response)
 })
 
 app.get('/', (request, response) => {

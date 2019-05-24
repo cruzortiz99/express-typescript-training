@@ -2,11 +2,10 @@
  * Se trabajaren con los Middleware y su diferentes formas
  * y la manera de emplearlos para desarrollar aplicaciones
  */
-import express, { response } from 'express'
+import express from 'express'
 import path from 'path'
 import fs from 'fs'
 import bodyParser from 'body-parser'
-import { request } from 'https'
 
 // Constantes de la app
 const port = 3000

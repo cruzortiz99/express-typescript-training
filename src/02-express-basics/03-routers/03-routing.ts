@@ -3,7 +3,7 @@
  * los routers de express para dividir el código y
  * hacer la aplicación más sostenible
  */
-import express, { response } from 'express'
+import express from 'express'
 /**
  * Se importan las rutas correspondientes para la aplicación
  */
