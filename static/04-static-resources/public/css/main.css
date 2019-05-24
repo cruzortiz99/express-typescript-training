@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+.content-layout {
+  display: grid;
+  grid-template-areas:
+    'hd hd'
+    'nv nv'
+    'mn cn'
+    'ft ft';
+  grid-template-columns: auto 80vw;
+  min-height: 100vh;
+}
+.content-header {
+  grid-area: hd;
+  align-self: start;
+  height: 150px;
+  overflow: hidden;
+  background-color: blue;
+}
+.content-nav {
+  grid-area: nv;
+  height: 50px;
+  overflow: auto;
+  display: inline-flex;
+  background-color: cyan;
+}
+.content-menu {
+  grid-area: mn;
+  max-width: 20vw;
+  background-color: seagreen;
+}
+.content-main {
+  grid-area: cn;
+  background-color: aquamarine;
+}
+.content-footer {
+  grid-area: ft;
+  align-self: end;
+  height: 50px;
+  background-color: cadetblue;
+}
