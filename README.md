@@ -17,3 +17,5 @@ Node full guide express &amp; typescript training
    - [x] <input type="checkbox" checked/> [Middleware](src/02-express-basics/02-middleware.ts)
 
    - [x] <input type="checkbox" checked/> [Router](src/02-express-basics/03-routers/03-routing.ts)
+
+   * [ ] <input type="checkbox" unchecked/> [Despachando recursos estáticos](#)
