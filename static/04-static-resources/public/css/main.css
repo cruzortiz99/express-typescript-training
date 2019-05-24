@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 .content-layout {
   display: grid;
@@ -9,6 +11,7 @@
     'mn cn'
     'ft ft';
   grid-template-columns: auto 80vw;
+  grid-template-rows: 150px 50px 100% 50px;
   min-height: 100vh;
 }
 .content-header {
