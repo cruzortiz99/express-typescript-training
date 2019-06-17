@@ -29,6 +29,7 @@ app.get('/', (request, response) => {
       __dirname,
       '..',
       '..',
+      '02-express-basics',
       'static',
       '04-static-resources',
       'index.html'
