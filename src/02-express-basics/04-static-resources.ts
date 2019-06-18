@@ -17,7 +17,15 @@ const app = express()
  */
 app.use(
   express.static(
-    path.join(__dirname, '..', '..', 'static', '04-static-resources', 'public')
+    path.join(
+      __dirname,
+      '..',
+      '..',
+      'static',
+      '02-express-basics',
+      '04-static-resources',
+      'public'
+    )
   )
 )
 /**
@@ -29,8 +37,8 @@ app.get('/', (request, response) => {
       __dirname,
       '..',
       '..',
-      '02-express-basics',
       'static',
+      '02-express-basics',
       '04-static-resources',
       'index.html'
     )
