@@ -1,15 +1,7 @@
 import { Router } from 'express'
-import fs from 'fs'
-
+import { error404Handler } from '../../controllers/errors'
 const router = Router()
 
-router.get('', (request, response) => {
-  fs.readFile(notFoundViewPath, (err, data) => {
-    if (err) {
-      response.end()
-    }
-    response.status(404).send(data)
-  })
-})
+router.get('', error404Handler)
 
 export default router
