@@ -3,7 +3,11 @@ import path from 'path'
 import { User } from '../models/User'
 import { Request, Response, NextFunction } from 'express-serve-static-core'
 
+const viewsPath = '../../../../static/03-express-intermediate/01-MVC/views'.split(
+  '/'
+)
 const formViewPath: string = path.join(__dirname, ...viewsPath, 'form.html')
+
 export const getUser = (
   request: Request,
   response: Response,
