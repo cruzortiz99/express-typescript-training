@@ -22,6 +22,6 @@ Node full guide express &amp; typescript training
 
    - [x] <input type="checkbox" checked/> [Despachando recursos estáticos](src/02-express-basics/04-static-resources.ts)
 
-     2.2. Intermedio
+   2.2. Intermedio
 
    - [ ] <input type="checkbox" unchecked> [MVC](src/03-express-intermediate/01-MVC)
