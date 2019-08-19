@@ -20,7 +20,7 @@ Node full guide express &amp; typescript training
 
    - [x] <input type="checkbox" checked/> [Router](src/02-express-basics/03-routers/03-routing.ts)
 
-   * [x] <input type="checkbox" checked/> [Despachando recursos estáticos](src/02-express-basics/04-static-resources.ts)
+   - [x] <input type="checkbox" checked/> [Despachando recursos estáticos](src/02-express-basics/04-static-resources.ts)
 
      2.2. Intermedio
 
