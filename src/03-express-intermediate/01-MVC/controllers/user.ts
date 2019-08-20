@@ -26,7 +26,7 @@ export const getUser = (
 export const postUser = (request: Request, response: Response) => {
   const user = new User(request.body.name, request.body.age)
   user.save()
-  response.end()
+  response.redirect('/user/form')
 }
 
 export const getUsers = (request: Request, response: Response) => {

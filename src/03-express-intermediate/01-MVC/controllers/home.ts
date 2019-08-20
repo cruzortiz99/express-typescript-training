@@ -21,9 +21,11 @@ export const home = (
       console.error(err)
       next()
     } else {
-      response.status(200).write(data)
+      response
+        .status(200)
+        .header('Content-Type', 'text/html')
+        .send(data)
     }
-    next()
   })
 }
 export const staticResources = express.static(
