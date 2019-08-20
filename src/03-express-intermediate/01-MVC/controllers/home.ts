@@ -23,7 +23,7 @@ export const home = (
     } else {
       response.status(200).write(data)
     }
-    response.end()
+    next()
   })
 }
 export const staticResources = express.static(

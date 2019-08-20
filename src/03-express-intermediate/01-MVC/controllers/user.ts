@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { User } from '../models/User'
+import { User } from '../entities/User'
 import { Request, Response, NextFunction } from 'express-serve-static-core'
 
 const viewsPath = '../../../../static/03-express-intermediate/01-MVC/views'.split(
@@ -25,8 +25,13 @@ export const getUser = (
 }
 export const postUser = (request: Request, response: Response) => {
   const user = new User(request.body.name, request.body.age)
-  response.status(200).setHeader('Content-Type', 'text/html')
-  response.end(`
-  <h3>${new User(request.body.name, request.body.age).sayHello()}</h3>
-  `)
+  user.save()
+  response.end()
+}
+
+export const getUsers = (request: Request, response: Response) => {
+  const users = User.fetchAll()
+  const usersHasJson = JSON.stringify(users)
+  response.status(200).setHeader('Content-Type', 'application/json')
+  response.send(usersHasJson)
 }

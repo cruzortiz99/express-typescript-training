@@ -8,7 +8,12 @@ const PORT = process.env.PORT || 3000
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use('/user', userRouter)
+// Logger
+app.use((req, resp, next) => {
+  console.log(req.method, req.url)
+  next()
+})
+app.use(userRouter)
 app.use(homeRouter)
 app.use(errorsRouter)
 
