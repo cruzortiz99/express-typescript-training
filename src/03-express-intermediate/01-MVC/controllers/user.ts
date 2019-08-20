@@ -20,11 +20,13 @@ export const getUser = (
     } else {
       response.status(200).write(data)
     }
+    response.end()
   })
 }
 export const postUser = (request: Request, response: Response) => {
   const user = new User(request.body.name, request.body.age)
-  response.status(200).end(`
-    <h3>${user.sayHello()}</h3>
+  response.status(200).setHeader('Content-Type', 'text/html')
+  response.end(`
+  <h3>${new User(request.body.name, request.body.age).sayHello()}</h3>
   `)
 }

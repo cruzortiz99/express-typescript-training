@@ -11,6 +11,6 @@ export const error404Handler = (request: Request, response: Response) => {
     if (err) {
       response.end()
     }
-    response.status(404).send(data)
+    response.status(404).end(data)
   })
 }

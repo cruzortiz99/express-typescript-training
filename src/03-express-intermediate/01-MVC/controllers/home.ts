@@ -1,3 +1,4 @@
+import express from 'express'
 import { Request, Response, NextFunction } from 'express-serve-static-core'
 import fs from 'fs'
 import path from 'path'
@@ -6,6 +7,9 @@ const viewsPath = '../../../../static/03-express-intermediate/01-MVC/views'.spli
   '/'
 )
 const homeViewPath = path.resolve(__dirname, ...viewsPath, 'home.html')
+const staticFolder = '../../../static/03-express-intermediate/01-MVC/public'.split(
+  '/'
+)
 
 export const home = (
   request: Request,
@@ -17,7 +21,11 @@ export const home = (
       console.error(err)
       next()
     } else {
-      response.status(200).send(data)
+      response.status(200).write(data)
     }
+    response.end()
   })
 }
+export const staticResources = express.static(
+  path.join(__dirname, ...staticFolder)
+)

@@ -1,8 +1,9 @@
 import { Router } from 'express'
-import { home } from '../../controllers/home'
+import { home, staticResources } from '../../controllers/home'
 
 const router = Router()
 
 router.get('/', home)
+router.use(staticResources)
 
 export default router
