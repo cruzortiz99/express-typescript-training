@@ -30,7 +30,7 @@ const connection: () => Promise<User[]> = () => {
   })
 }
 
-export const save = async (user: User) => {
+export const save:(user:User)=>Promise<User> = async (user: User) => {
   const usersInDoc = await connection()
   usersInDoc.push(user)
   return new Promise((resolve, reject) => {
