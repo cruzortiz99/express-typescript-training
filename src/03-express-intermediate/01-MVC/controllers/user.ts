@@ -29,9 +29,9 @@ export const postUser = (request: Request, response: Response) => {
   response.redirect('/user/form')
 }
 
-export const getUsers = (request: Request, response: Response) => {
-  const users = User.fetchAll()
-  const usersHasJson = JSON.stringify(users)
+export const getUsers = async (request: Request, response: Response) => {
+  const users = await User.fetchAll()
+  const usersAsJson = JSON.stringify(users)
   response.status(200).setHeader('Content-Type', 'application/json')
-  response.send(usersHasJson)
+  response.send(usersAsJson)
 }

@@ -18,11 +18,10 @@ const connection: () => Promise<User[]> = () => {
         })
       }
       fs.readFile(userDoc, (err, data) => {
-        if (err) {
+        if (err)
           return fs.writeFile(userDoc, usersJson, (err) => {
             if (err) return reject(err)
           })
-        }
         const users: User[] = JSON.parse(data.toString())
         resolve(users)
       })
@@ -30,7 +29,7 @@ const connection: () => Promise<User[]> = () => {
   })
 }
 
-export const save:(user:User)=>Promise<User> = async (user: User) => {
+export const save: (user: User) => Promise<User> = async (user: User) => {
   const usersInDoc = await connection()
   usersInDoc.push(user)
   return new Promise((resolve, reject) => {
